@@ -2,11 +2,10 @@ package sprintempresa;
 
 import java.util.Scanner;
 
-public class Cliente {
+public class Cliente extends Usuario {
 
     String nombres;
     String apellidos;
-    String rut;
     String telefono;
     String afp;
     String sistemaSalud;
@@ -15,13 +14,14 @@ public class Cliente {
     String edad;
 
     public Cliente() {
+        super();
     }
 
-    public Cliente(String nombres, String apellidos, String rut, String telefono, String afp, String sistemaSalud,
-            String direccion, String comuna, String edad) {
+    public Cliente(String nombre, String fechaNacimiento, String rut, String nombres, String apellidos,
+            String telefono, String afp, String sistemaSalud, String direccion, String comuna, String edad) {
+        super(nombre, fechaNacimiento, rut);
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.rut = rut;
         this.telefono = telefono;
         this.afp = afp;
         this.sistemaSalud = sistemaSalud;
@@ -29,6 +29,7 @@ public class Cliente {
         this.comuna = comuna;
         this.edad = edad;
     }
+
 
     @Override
     public String toString() {
@@ -272,6 +273,13 @@ public class Cliente {
 
     public void setEdad(String edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public void analizarUsuario() {
+        // TODO Auto-generated method stub
+        super.analizarUsuario();
+        System.out.println("\nDireccion --> " + getDireccion() + "\nComuna --> " + getComuna());
     }
 
 }

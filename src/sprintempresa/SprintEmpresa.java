@@ -3,7 +3,6 @@ package sprintempresa;
 import java.util.Scanner;
 
 /**
- *
  * @author Luis Zenteno
  * @author Maria-Fernanda Villalobos
  * @author Bárbara Carvajal
@@ -11,17 +10,17 @@ import java.util.Scanner;
 
 //Crear clase USUARIO con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
 //Crear metodo mostrarEdad() para la clase USUARIO el cual retorna el mensaje “El  usuario tiene X años”.
-//TODO: Crear el metodo analizarUsuario que despliegue el nombre y el RUN. Considere que esta clase debeimplementar la interface Asesoría.
+//Crear el metodo analizarUsuario que despliegue el nombre y el RUN. Considere que esta clase debeimplementar la interface Asesoría.
 
 //Crear clase CLIENTE con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
 //Crear el método obtenerNombre(), que retorna un String con el nombre completodel cliente (nombres + apellidos).
 //TODO: Crear el método obtenerSistemaSalud()  que de acuerdo al valor registrado en el objeto despliega el tipo de sistema de salud,
-//TODO: Crear el método analizarUsuario() que debe desplegar los datos del método del mismo nombre correspondiente a la clase padre y la dirección del cliente junto con la comuna.
+//Crear el método analizarUsuario() que debe desplegar los datos del método del mismo nombre correspondiente a la clase padre y la dirección del cliente junto con la comuna.
 
-//TODO: Crear interface ASESORIA que debe tener declarado el método analizarUsuario ().
+//Crear interface ASESORIA que debe tener declarado el método analizarUsuario ().
 
 //Crear clase ADMMINISTRATIVO con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
-//TODO: Crear el método analizarUsuario() debe mostrar los datos del método del mismo nombre de la clase padre,junto con el área a la que pertenece y su experiencia previa.
+//Crear el método analizarUsuario() debe mostrar los datos del método del mismo nombre de la clase padre,junto con el área a la que pertenece y su experiencia previa.
 
 //Crear clase PROFESIONAL, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
 //Crear método analizarUsuario(), el que debe desplegar los datos del método del mismo nombre de la clase padre, y el título y fecha de ingreso.

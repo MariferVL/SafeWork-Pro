@@ -21,12 +21,6 @@ public class Profesional extends Usuario {
                 + "\nFecha Ingreso --> " + fechaIngreso;
     }
 
-    @Override
-    public String analizarUsuario() {
-        // TODO Auto-generated method stub
-        return super.analizarUsuario() + "\nTitulo --> " + getTitulo() + "\nFecha Ingreso --> " + getFechaIngreso();
-    }
-
     public String getTitulo() {
         return titulo;
     }
@@ -41,5 +35,12 @@ public class Profesional extends Usuario {
 
     public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
+    }
+
+    @Override
+    public void analizarUsuario() {
+        // TODO Auto-generated method stub
+        super.analizarUsuario();
+        System.out.println("\nTitulo --> " + getTitulo() + "\nFecha Ingreso --> " + getFechaIngreso());
     }
 }

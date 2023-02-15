@@ -2,11 +2,13 @@ package sprintempresa;
 
 import java.util.Scanner;
 import java.lang.String;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-/*
+/**
  * @author Luis Zenteno
  */
-public class Usuario extends Validador{
+public class Usuario implements Asesoria{
 
     // Atributos propios de la clase
     String nombre;
@@ -14,9 +16,7 @@ public class Usuario extends Validador{
     String rut;
 
     // Constructor vacío
-    public Usuario() {
-        super();
-    }
+    public Usuario() {}
 
     // Constructor con parametros
     public Usuario(String nombre, String fechaNacimiento, String rut) {
@@ -30,6 +30,55 @@ public class Usuario extends Validador{
     public String toString() {
         return "DATOS USUARIO\nNombre --> " + nombre + "\nfechaNacimiento --> " + fechaNacimiento + "\nrut --> " + rut;
     }
+
+
+    
+    public String validarRut(String mensaje, Scanner sc) {
+
+        boolean condRut = true;
+        String input = "";
+
+        while (condRut) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine();
+
+            if (input.matches("\\d{2}.\\d{3}.\\d{3}")) {
+
+                condRut = false;
+            } else {
+
+                System.out.println("Rut ingresado no valido, intentalo nuevamente");
+            }
+        }
+        return input;
+    }
+
+    public String validarFecha(String mensaje, Scanner sc) {
+
+        boolean condFecha = true;
+        String input = "";
+
+        while (condFecha) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine();
+
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            format.setLenient(false); // establecer en falso para validación estricta
+
+            try {
+                format.parse(input);
+                condFecha = false;
+
+            } catch (ParseException e) {
+                System.out.println(input + " no es una fecha válida, intentalo nuevamente");
+            }
+
+        }
+        return input;
+    }
+
 
     public String validarNombreTitulo(String mensaje, Scanner sc){
 
@@ -62,14 +111,6 @@ public class Usuario extends Validador{
 
 			return "\nEl usuario " + this.nombre.toUpperCase() + " tiene " + edad + " años";
     }
-
-    public String analizarUsuario(){
-
-        return "\nNombre --> " + getNombre().toUpperCase() + "\nRut --> " + getRut();
-    }
-
-
-
     // Getters and Setters
 
     public String getNombre() {
@@ -94,5 +135,14 @@ public class Usuario extends Validador{
 
     public void setRut(String rut) {
         this.rut = rut;
+    }
+
+    @Override
+    public void analizarUsuario() {
+        // TODO Auto-generated method stub
+
+        System.out.println("\nNombre --> " + getNombre() + "\nRut --> " + getRut());
+        
+
     }
 }
