@@ -4,7 +4,42 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public abstract class validacionAbs {
+
+/**
+ * Clase abstracta que contiene los atributos y métodos básicos de validación de los objetos de capacitación.
+*/
+public abstract class ValidacionAbs {
+
+    String id;
+    String rutCliente;
+    String dia;
+    String hora;
+    String lugar;
+    String origen;
+
+    /**
+     * Constructor por defecto de la clase.
+    */ 
+    public ValidacionAbs(){}
+
+    /**
+     * Constructor de la clase con todos los atributos.
+     *
+     * @param id         Identificador de la capacitación.
+     * @param rutCliente Rut del cliente que contrata la capacitación.
+     * @param dia        Día en que se realizará la capacitación.
+     * @param hora       Hora en que se realizará la capacitación.
+     * @param lugar      Lugar donde se realizará la capacitación.
+     * @param origen     Origen de la solicitud de la capacitación.
+    */
+    public ValidacionAbs(String id, String rutCliente, String dia, String hora, String lugar, String origen) {
+        this.id = id;
+        this.rutCliente = rutCliente;
+        this.dia = dia;
+        this.hora = hora;
+        this.lugar = lugar;
+        this.origen = origen;
+    }
 
     public String validarId(String mensaje, Scanner sc) {
 
@@ -62,6 +97,7 @@ public abstract class validacionAbs {
                 format.parse(input);
                 cond = false;
 
+            // Se intenta parsear la entrada del usuario con el formato definido
             } catch (ParseException e) {
                 System.out.println(input + " no es una fecha válida, intentalo nuevamente");
             }
@@ -70,7 +106,7 @@ public abstract class validacionAbs {
         return input;
     }
 
-    public String validarHora(String mensaje, Scanner sc){
+    public String validarHora(String mensaje, Scanner sc) {
 
         boolean condFecha = true;
         String input = "";
@@ -80,13 +116,15 @@ public abstract class validacionAbs {
             System.out.print("\n" + mensaje);
             input = sc.nextLine();
 
-            SimpleDateFormat format = new SimpleDateFormat("HH:MM");
+            // Creamos un formato para validar la hora
+            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
             format.setLenient(false); // establecer en falso para validación estricta
 
             try {
                 format.parse(input);
                 condFecha = false;
 
+             // Se intenta parsear la entrada del usuario con el formato definido
             } catch (ParseException e) {
                 System.out.println(input + " no es una fecha válida, intentalo nuevamente");
             }
@@ -96,7 +134,7 @@ public abstract class validacionAbs {
 
     }
 
-    public String validarLugar(String mensaje, Scanner sc){
+    public String validarLugar_NombreRev(String mensaje, Scanner sc) {
 
         boolean cond = true;
         String input = "";
@@ -106,9 +144,9 @@ public abstract class validacionAbs {
             System.out.print("\n" + mensaje);
             input = sc.nextLine();
 
-            if (input.matches("[a-z A-Z 0-9]{10,50}")){
+            if (input.matches("[a-z A-Z 0-9]{10,50}")) {
                 cond = false;
-            }else{
+            } else {
                 System.out.println("Dato ingresado no valido, intentalo nuevamente");
             }
 
@@ -116,4 +154,23 @@ public abstract class validacionAbs {
         return input;
     }
 
+    public String validarDetalleComentarios(String mensaje, Scanner sc) {
+
+        boolean cond = true;
+        String input = "";
+
+        while (cond) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine();
+
+            if (input.matches("[a-z A-Z 0-9]{1,100}")) {
+
+                cond = false;
+            } else {
+                System.out.println("Datos ingresados no validos, intentelo nuevamente");
+            }
+        }
+        return input;
+    }
 }

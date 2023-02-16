@@ -76,7 +76,7 @@ public class Cliente extends Usuario {
 
                 condTel = false;
             } else {
-                System.out.println("Numero de telefono no valid, intentalo nuevamente");
+                System.out.println("Numero de telefono no valido, intentalo nuevamente");
             }
         }
         return input;
