@@ -29,6 +29,8 @@ junto con los datos del cliente al que está asociada dicha capacitación.
       public void almacenarCliente(Cliente cliente){
         listaAsesorias.add(cliente);
       }
+
+      
       //- Almacenar profesional: permite agregar un nuevo profesional a la lista de instancias de la interface Asesoria.
       public void almacenarProfesional(Profesional profesional){
 
