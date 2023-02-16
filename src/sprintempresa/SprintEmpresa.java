@@ -1,6 +1,11 @@
 package sprintempresa;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
 import ActividadesEmpresa.*;;
 
 /**
@@ -26,12 +31,12 @@ import ActividadesEmpresa.*;;
 //Crear clase PROFESIONAL, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
 //Crear método analizarUsuario(), el que debe desplegar los datos del método del mismo nombre de la clase padre, y el título y fecha de ingreso.
 
-//TODO: Crear clase CAPACITACION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//TODO Crear el método mostrarDetalle(), que retorna el mensaje “La capacitación será en A a las B del día C, y durará D minutos”.
+//Crear clase CAPACITACION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
+//Crear el método mostrarDetalle(), que retorna el mensaje “La capacitación será en A a las B del día C, y durará D minutos”.
 
-//TODO: Crear clase ACCIDENTE, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//TODO: Crear clase VISITA TERRENO, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//TODO: Crear clase REVISION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
+//Crear clase ACCIDENTE, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
+//Crear clase VISITA TERRENO, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
+//Crear clase REVISION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
 
 //TODO: Crear la clase CONTENEDOR deberá tener declarado como atributos una lista de instancias de la interface Asesoria, y una lista de objetos de la clase Capacitacion.
 //TODO: Crear metodo Almacenar cliente: permite agregar un nuevo cliente a la lista de instancias de la interface Asesoria.
@@ -129,8 +134,6 @@ public class SprintEmpresa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-
         Menu();
     
     }

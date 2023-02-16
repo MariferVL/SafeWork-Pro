@@ -15,7 +15,7 @@ public class Administrativo extends Usuario {
 
     @Override
     public String toString() {
-        return "Administrativo [area=" + area + ", experiencia=" + experiencia + "]";
+        return "DATOS ADMINISTRATIVO\n* Area --> " + area + "\n* Experiencia=" + experiencia;
     }
 
     public String getArea() {
@@ -32,11 +32,5 @@ public class Administrativo extends Usuario {
 
     public void setExperiencia(String experiencia) {
         this.experiencia = experiencia;
-    }
-
-    
-    
-
-    
-    
+    } 
 }

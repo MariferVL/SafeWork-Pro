@@ -33,7 +33,7 @@ public class Cliente extends Usuario {
 
     @Override
     public String toString() {
-        return "DATOS CLIENTE\nNombres --> " + nombres + "\napellidos --> " + apellidos + "\nrut --> " + rut
+        return "\nDATOS CLIENTE\n\nNombres --> " + nombres + "\napellidos --> " + apellidos + "\nrut --> " + rut
                 + "\ntelefono --> " + telefono
                 + "\nafp --> " + afp + "\nsistemaSalud --> " + sistemaSalud + "\ndireccion --> " + direccion
                 + "\ncomuna --> " + comuna
