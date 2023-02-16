@@ -79,7 +79,6 @@ public class Usuario implements Asesoria{
         return input;
     }
 
-
     public String validarNombreTitulo(String mensaje, Scanner sc){
 
         boolean cond = true;
