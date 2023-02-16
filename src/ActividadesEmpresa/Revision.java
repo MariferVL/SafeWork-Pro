@@ -10,9 +10,9 @@ public class Revision extends ValidacionAbs {
         super();
     }
 
-    public Revision(String id, String rutCliente, String dia, String hora, String lugar, String origen,
-            String estadoRevision) {
-        super(id, rutCliente, dia, hora, lugar, origen);
+    public Revision(String id, String rutCliente, String dia, String hora, String lugar, String estadoRevision) {
+        super(id, rutCliente, dia, hora, lugar);
+        
         this.estadoRevision = estadoRevision;
     }
 
@@ -53,7 +53,7 @@ public class Revision extends ValidacionAbs {
 
     @Override
     public String toString() {
-        return "DATOS REVISION\n* Identificador Revision >> " + id + "\n* Identificador Visita Terreno >>  " + "\n* Estado Revision >> " + estadoRevision;
+        return "DATOS REVISION\n\n* Identificador Revision >> " + id + "\n* Identificador Visita Terreno >>  " + "\n* Estado Revision >> " + estadoRevision;
     }
 
     public String getEstadoRevision() {

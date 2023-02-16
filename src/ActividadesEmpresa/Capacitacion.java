@@ -36,8 +36,11 @@ public class Capacitacion extends ValidacionAbs {
      * @param origen     el origen de la solicitud de la sesión de capacitación
 */
 
-    public Capacitacion(String id, String rutCliente, String dia, String hora, String lugar, String origen) {
-        super(id, rutCliente, dia, hora, lugar, origen);
+    public Capacitacion(String id, String rutCliente, String dia, String hora, String lugar,String duracion, String cantidadAsistentes) {
+        super(id, rutCliente, dia, hora, lugar);
+
+        this.duracion = duracion;
+        this.cantidadAsistentes = cantidadAsistentes;
     }
 
     /**
@@ -82,6 +85,29 @@ public class Capacitacion extends ValidacionAbs {
         return input;
     }
 
+    public String validarDiaSemana(String mensaje, Scanner sc){
+        boolean cond = true;
+        String input = "";
+
+        while (cond) {
+
+            System.out.println("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[a-z]{5,9}")){
+
+                if (input.equals("lunes") || input.equals("martes") || input.equals("miercoles") || input.equals("jueves")
+                    || input.equals("viernes") || input.equals("sabado") || input.equals("domingo")){
+                        cond = false;
+                    }else{
+                        System.out.println("No has ingresado un dia de la semana correcto, intentalo nuevamente");
+                    }
+            }else{
+                System.out.println("Dato ingresado no valido, intentalo nuevamente");
+            }
+        }
+        return input;
+    }
     public String validarDuracion(String mensaje, Scanner sc) {
 
         boolean condicion = true;
@@ -136,7 +162,7 @@ public class Capacitacion extends ValidacionAbs {
 
     public String mostrarDetalle() {
 
-        String detalle = "La capacitación será en " + this.getLugar() + " a las " + this.getHora() + " del día "
+        String detalle = "\nLa capacitación será en " + this.getLugar() + " a las " + this.getHora() + " del día "
                 + this.getDia() + " y durará " + this.transformarHora() + " minutos.";
         return detalle;
     }
@@ -183,14 +209,6 @@ public class Capacitacion extends ValidacionAbs {
 
     public void setLugar(String lugar) {
         this.lugar = lugar;
-    }
-
-    public String getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(String origen) {
-        this.origen = origen;
     }
 
     public String getCantidadAsistentes() {

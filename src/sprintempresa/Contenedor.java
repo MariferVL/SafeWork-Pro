@@ -1,9 +1,4 @@
 package sprintempresa;
-
-import java.util.ArrayList;
-
-import ActividadesEmpresa.Capacitacion;
-
 public class Contenedor {
   /* 
   Cree la clase Contenedor, la cual deberá tener declarado como atributos dos listas: 
@@ -45,20 +40,7 @@ junto con los datos del cliente al que está asociada dicha capacitación.
         listaCapacitacion.add(new Capacitacion(null, null, null, null, null, null));
       }
 
-      //- Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
-
-
-
-
-      
-
-      
-      
-
-  
     
     
-
-
 }
 
