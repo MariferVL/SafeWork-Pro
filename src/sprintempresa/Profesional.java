@@ -1,5 +1,7 @@
 package sprintempresa;
 
+import java.util.Scanner;
+
 public class Profesional extends Usuario {
 
     String titulo;
@@ -20,6 +22,26 @@ public class Profesional extends Usuario {
     public String toString() {
         return "\nDATOS PROFESIONAL\n\nNombre --> " + nombre + "\nFecha nacimiento --> " + fechaNacimiento +  "\nTitulo --> " + titulo 
                 + "\nFecha Ingreso --> " + fechaIngreso;
+    }
+    public String validarNombreTitulo(String mensaje, Scanner sc){
+
+        boolean cond = true;
+        String input = "";
+
+        while (cond){
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[a-z A-Z]{10,50}")){
+
+                cond = false;
+            }else{
+                System.out.println("Datos ingresados no validos, ingresa un nombre nuevamente");
+            }
+        }
+
+        return input;
     }
 
     public String getTitulo() {

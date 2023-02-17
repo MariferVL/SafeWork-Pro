@@ -31,7 +31,142 @@ public class Usuario implements Asesoria{
         return "DATOS USUARIO\nNombre --> " + nombre + "\nFecha Nacimiento --> " + fechaNacimiento + "\nRut --> " + rut;
     }
 
+    
+    public String validarNombreApellido(String mensaje, Scanner sc) {
 
+        boolean condNombre = true;
+        String input = "";
+
+        while (condNombre) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[a-z A-Z]{5,30}")) {
+
+                condNombre = false;
+            } else {
+
+                System.out.println("Datos ingresados no validos, intentalo nuevamente");
+            }
+
+        }
+        return input;
+    }
+
+    public String validarTelefono(String mensaje, Scanner sc) {
+
+        boolean condTel = true;
+        String input = "";
+
+        while (condTel) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine();
+
+            if (input.matches("[0-9]{8}")) {
+
+                condTel = false;
+            } else {
+                System.out.println("Numero de telefono no valido, intentalo nuevamente");
+            }
+        }
+        return input;
+    }
+
+
+
+    public String validarDireccion(String mensaje, Scanner sc) {
+
+		boolean condicion2 = true;
+		String input = "";
+
+		while (condicion2) {
+
+			System.out.print("\n" + mensaje);
+			input = sc.nextLine().toLowerCase();
+
+			if (input.matches("[a-z A-Z 0-9]{2,70}")) {
+
+				condicion2 = false;
+			} else {
+
+				System.out.println("Direccion ingresada no valida, intentelo nuevamente");
+			}
+		}
+		return input;
+	}
+
+    public String validarComuna(String mensaje, Scanner sc) {
+
+		boolean condicion2 = true;
+		String input = "";
+
+		while (condicion2) {
+
+			System.out.print("\n" + mensaje);
+			input = sc.nextLine().toLowerCase();
+
+			if (input.matches("[a-z A-Z 0-9]{2,50}")) {
+
+				condicion2 = false;
+			} else {
+
+				System.out.println("Direccion ingresada no valida, intentelo nuevamente");
+			}
+		}
+		return input;
+	}
+
+    public String validarEdad(String mensaje, Scanner sc) {
+
+		boolean condEdad = true;
+		String input = "";
+
+		while (condEdad) {
+
+			System.out.print("\n" + mensaje);
+			input = sc.nextLine();
+
+			if (input.matches("[0-9]{1,3}")) {
+
+                int edad1 = Integer.parseInt(input);
+
+                if (edad1 >= 0 && edad1 <= 150){
+
+                    condEdad = false;
+                }else{
+                    System.out.println("La edad no está dentro del rango estimado, intentalo nuevamente");
+                }
+			} else {
+				System.out.println("Dato ingresado no valido, intentalo nuevamente");
+			}
+
+		}
+		return input;
+	}
+
+    public String validarNombre(String mensaje, Scanner sc) {
+
+        boolean condNombre = true;
+        String input = "";
+
+        while (condNombre) {
+
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[a-z A-Z]{10,50}")) {
+
+                condNombre = false;
+            } else {
+
+                System.out.println("Datos ingresados no validos, intentalo nuevamente");
+            }
+
+        }
+        return input;
+    }
     
     public String validarRut(String mensaje, Scanner sc) {
 
@@ -76,27 +211,6 @@ public class Usuario implements Asesoria{
             }
 
         }
-        return input;
-    }
-
-    public String validarNombreTitulo(String mensaje, Scanner sc){
-
-        boolean cond = true;
-        String input = "";
-
-        while (cond){
-
-            System.out.print("\n" + mensaje);
-            input = sc.nextLine().toLowerCase();
-
-            if (input.matches("[a-z A-Z]{10,50}")){
-
-                cond = false;
-            }else{
-                System.out.println("Datos ingresados no validos, ingresa un nombre nuevamente");
-            }
-        }
-
         return input;
     }
 
