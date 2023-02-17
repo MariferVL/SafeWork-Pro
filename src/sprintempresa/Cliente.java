@@ -36,7 +36,7 @@ public class Cliente extends Usuario {
     public String toString() {
         return "\nDATOS CLIENTE\n\nNombres --> " + nombres + "\napellidos --> " + apellidos + "\nrut --> " + rut
                 + "\ntelefono --> " + telefono
-                + "\nafp --> " + afp + "\nsistemaSalud --> " + sistemaSalud + "\ndireccion --> " + direccion
+                + "\nafp --> " + afp + "\nsistemaSalud --> " + obtenerSistemaSalud() + "\ndireccion --> " + direccion
                 + "\ncomuna --> " + comuna
                 + "\nedad --> " + edad;
     }
@@ -48,7 +48,7 @@ public class Cliente extends Usuario {
 
         while (condNombre) {
 
-            System.out.println("\n" + mensaje);
+            System.out.print("\n" + mensaje);
             input = sc.nextLine().toLowerCase();
 
             if (input.matches("[a-z A-Z]{5,30}")) {
@@ -96,7 +96,7 @@ public class Cliente extends Usuario {
             if (input.matches("[a-z A-Z]{3,9}")) {
 
                 if (input.equals("uno") || input.equals("provida") || input.equals("habitat") || input.equals("cuprum")
-                        || input.equals("capital") || input.equals("planvital")) {
+                        || input.equals("capital") || input.equals("planvital") || input.equals("modelo")) {
 
                     condAfp = false;
                 } else {
@@ -107,6 +107,23 @@ public class Cliente extends Usuario {
             }
         }
         return input;
+    }
+
+
+    public String obtenerSistemaSalud(){
+        String sistema = "Fonasa";
+    
+        if (this.sistemaSalud.equals("1")){
+             sistema = "Fonasa";
+    
+        }else if (this.sistemaSalud.equals("2")){
+            sistema = "Isapre";
+    
+        }else{
+            System.out.println("norsts");
+        }
+        
+        return sistema;
     }
 
     public String validarSalud(String mensaje, Scanner sc) {
