@@ -1,6 +1,7 @@
 package sprintempresa;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import ActividadesEmpresa.Capacitacion;
 
@@ -19,18 +20,36 @@ public class Contenedor {
 - Listar capacitaciones: este método despliega las capacitaciones registradas en la lista respectiva, 
 junto con los datos del cliente al que está asociada dicha capacitación.
     */
+
+      //scanner
+      Scanner teclado = new Scanner(System.in)  ;
       // lista asesorias
       ArrayList<Asesoria> listaAsesorias = new ArrayList<Asesoria>();
       // lista de objetos de la clase capacitacion
       ArrayList<Capacitacion> listaCapacitacion = new ArrayList<Capacitacion>();
 
-
+      
+      
       //- Almacenar cliente: permite agregar un nuevo cliente a la lista de instancias de la interface Asesoria.
-      public void almacenarCliente(Cliente cliente){
+      public void almacenarCliente(){
+        Cliente cliente = new Cliente();
+        cliente.setRut(cliente.validarRut("Ingresa tu rut (ej: 99.999.999) --> ", teclado));
+        cliente.setNombres(cliente.validarNombreApellido("Ingresar nombre, mínimo 5 caracteres, máximo 30 --> ", teclado));
+        cliente.setApellidos(cliente.validarNombreApellido("Ingresar apellido y apellido, mínimo 5 caracteres, máximo 30 --> ", teclado));
+        cliente.setFechaNacimiento(cliente.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
+        cliente.setTelefono(cliente.validarTelefono("Ingresa tu numero de telefono (8 digitos) --> ", teclado));
+        cliente.setAfp(cliente.validarAfp("AFP: mínimo 4 caracteres, máximo 30 --> ", teclado));
+        cliente.setSistemaSalud(cliente.validarSalud("Sistema de salud: 1 (Fonasa) o 2 (Isapre) --> ", teclado));
+        cliente.setDireccion(cliente.validarDireccion("Dirección: minimo 2 caracteres, máximo 70 caractere --> ", teclado));
+        cliente.setComuna(cliente.validarComuna("Comuna: máximo 50 caracteres --> ", teclado));
+        cliente.setEdad(cliente.validarEdad("Edad: obligatorio, número mayor o igual a cero, y menor a 150 --> ", teclado));
+
         listaAsesorias.add(cliente);
+        System.out.println(cliente.toString());
+        
       }
 
-      
+
       //- Almacenar profesional: permite agregar un nuevo profesional a la lista de instancias de la interface Asesoria.
       public void almacenarProfesional(Profesional profesional){
 

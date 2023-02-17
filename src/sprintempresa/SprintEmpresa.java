@@ -53,7 +53,7 @@ public class SprintEmpresa {
     public static void Menu() {
 
         Scanner sc = new Scanner(System.in);
-
+        Contenedor contenedor = new Contenedor();
         boolean condMenu = true;
 
         while (condMenu) {
@@ -77,6 +77,8 @@ public class SprintEmpresa {
 
                 case 1:
                     System.out.println("ALMACENAR CLIENTE");
+                    contenedor.almacenarCliente();
+                    // despues quitar
                     condMenu = false;
                     break;
 
