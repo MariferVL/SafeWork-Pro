@@ -6,6 +6,7 @@ import java.util.Scanner;
 import ActividadesEmpresa.Capacitacion;
 
 public class Contenedor {
+
   /* 
   Cree la clase Contenedor, la cual deberá tener declarado como atributos dos listas: 
   una lista de instancias de la interface Asesoria, y una lista de objetos de la 
@@ -65,19 +66,6 @@ junto con los datos del cliente al que está asociada dicha capacitación.
       }
 
       //- Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
-
-
-
-
-      
-
-      
-      
-
-  
     
-    
-
-
 }
 

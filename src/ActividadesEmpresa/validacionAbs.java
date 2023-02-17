@@ -15,7 +15,6 @@ public abstract class ValidacionAbs {
     String dia;
     String hora;
     String lugar;
-    String origen;
 
     /**
      * Constructor por defecto de la clase.
@@ -32,13 +31,12 @@ public abstract class ValidacionAbs {
      * @param lugar      Lugar donde se realizará la capacitación.
      * @param origen     Origen de la solicitud de la capacitación.
     */
-    public ValidacionAbs(String id, String rutCliente, String dia, String hora, String lugar, String origen) {
+    public ValidacionAbs(String id, String rutCliente, String dia, String hora, String lugar) {
         this.id = id;
         this.rutCliente = rutCliente;
         this.dia = dia;
         this.hora = hora;
         this.lugar = lugar;
-        this.origen = origen;
     }
 
     public String validarId(String mensaje, Scanner sc) {
@@ -142,7 +140,7 @@ public abstract class ValidacionAbs {
         while (cond) {
 
             System.out.print("\n" + mensaje);
-            input = sc.nextLine();
+            input = sc.nextLine().toLowerCase();
 
             if (input.matches("[a-z A-Z 0-9]{10,50}")) {
                 cond = false;
@@ -154,7 +152,7 @@ public abstract class ValidacionAbs {
         return input;
     }
 
-    public String validarDetalleComentarios(String mensaje, Scanner sc) {
+    public String validarDetalleComentariosOrigen(String mensaje, Scanner sc) {
 
         boolean cond = true;
         String input = "";
@@ -162,7 +160,7 @@ public abstract class ValidacionAbs {
         while (cond) {
 
             System.out.print("\n" + mensaje);
-            input = sc.nextLine();
+            input = sc.nextLine().toLowerCase();
 
             if (input.matches("[a-z A-Z 0-9]{1,100}")) {
 

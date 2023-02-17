@@ -11,13 +11,14 @@ public class Profesional extends Usuario {
 
     public Profesional(String nombre, String fechaNacimiento, String rut, String titulo, String fechaIngreso) {
         super(nombre, fechaNacimiento, rut);
+
         this.titulo = titulo;
         this.fechaIngreso = fechaIngreso;
     }
 
     @Override
     public String toString() {
-        return "DATOS PROFESIONAL\nNombre --> " + nombre + "\nFecha nacimiento --> " + fechaNacimiento +  "\nTitulo --> " + titulo 
+        return "\nDATOS PROFESIONAL\n\nNombre --> " + nombre + "\nFecha nacimiento --> " + fechaNacimiento +  "\nTitulo --> " + titulo 
                 + "\nFecha Ingreso --> " + fechaIngreso;
     }
 

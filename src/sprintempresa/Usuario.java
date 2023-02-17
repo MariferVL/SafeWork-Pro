@@ -28,7 +28,7 @@ public class Usuario implements Asesoria{
     // Metodo toString
     @Override
     public String toString() {
-        return "DATOS USUARIO\nNombre --> " + nombre + "\nfechaNacimiento --> " + fechaNacimiento + "\nrut --> " + rut;
+        return "DATOS USUARIO\nNombre --> " + nombre + "\nFecha Nacimiento --> " + fechaNacimiento + "\nRut --> " + rut;
     }
 
 
