@@ -106,7 +106,7 @@ public class SprintEmpresa {
 
                 case 5:
                     System.out.println("ELIMINAR USUARIO");
-                    
+                    contenedor.eliminarUsuario();
                     break;
 
                 case 6:
@@ -117,9 +117,8 @@ public class SprintEmpresa {
 
                 case 7:
                     System.out.println("LISTAR USUARIOS POR TIPO");
-                    System.out.print("Ingrese el tipo de usuario por el cual desea listar: ");
-                    String tipo = sc.nextLine();
-                    contenedor.listarUsuariosPorTipo(null);
+                    
+                    contenedor.listarUsuariosPorTipo();
                     break;
 
                 case 8:

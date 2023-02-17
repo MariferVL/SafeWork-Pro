@@ -79,7 +79,23 @@ public class Contenedor {
       }
 
       //- Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
-
+    public void eliminarUsuario(){
+      System.out.println("Ingrese el tipo de usuario que desea eliminar [cliente, administrativo o profesional]");
+      String tipoUsuario = teclado.nextLine();
+      
+      for (Asesoria asesoria : listaAsesorias) {
+        if (tipoUsuario.equalsIgnoreCase("cliente") && asesoria instanceof Cliente) {
+          System.out.print("Ingrese el rut del cliente que desea eliminar --> ");
+          String rutIngresado = teclado.nextLine();
+          if (rutIngresado.equals(((Cliente) asesoria).getRut())){
+            listaAsesorias.remove(asesoria);
+            System.out.println("El usuario ha sido eliminado con exito");
+          }else{
+            System.out.println("No existe ese rut en nuestros sistemas... :c");
+          }
+        }
+      }
+  }
       /* 
       - Listar usuarios: permite desplegar la lista completa de usuarios, independiente del tipo. 
       En este método solo se deben desplegar los datos de la clase usuario. */
@@ -120,11 +136,23 @@ public class Contenedor {
       y retorna los datos respectivos según el tipo de usuario.
       - Listar capacitaciones: este método despliega las capacitaciones registradas en la lista respectiva, 
       junto con los datos del cliente al que está asociada dicha capacitación.
+
+      ((Cliente) asesoria) es un casting que convierte la referencia asesoria 
+      a un objeto de la clase Cliente. Esto es necesario si asesoria es una 
+      instancia de una clase que es una subclase de Cliente.
+
+      Asesoria asesoria: indica que la variable asesoria será de tipo Asesoria, es decir, 
+      se trata de una variable que contendrá objetos de la clase Asesoria. 
+      Este tipo debe coincidir con el tipo de la colección listaAsesorias.
       */
-      public void listarUsuariosPorTipo(String tipo) {
+      public void listarUsuariosPorTipo() {
+        
+        System.out.print("Ingrese el tipo de usuario por el cual desea listar: ");
+        String tipo = teclado.nextLine();
+       
         for (Asesoria asesoria : listaAsesorias) {
           if (tipo.equalsIgnoreCase("cliente") && asesoria instanceof Cliente) {
-            System.out.println("Rut: " + ((Cliente) asesoria).getRut());
+            System.out.println("\nRut: " + ((Cliente) asesoria).getRut());
             System.out.println("Nombres: " + ((Cliente) asesoria).getNombres());
             System.out.println("Apellidos: " + ((Cliente) asesoria).getApellidos());
             System.out.println("Fecha de nacimiento: " + ((Cliente) asesoria).getFechaNacimiento());
@@ -136,19 +164,21 @@ public class Contenedor {
             System.out.println("Edad: " + ((Cliente) asesoria).getEdad());
             System.out.println();
           } else if (tipo.equalsIgnoreCase("administrativo") && asesoria instanceof Administrativo) {
-            System.out.println("Nombre: " + ((Administrativo) asesoria).getNombre());
+            System.out.println("\nNombre: " + ((Administrativo) asesoria).getNombre());
             System.out.println("Fecha de nacimiento: " + ((Administrativo) asesoria).getFechaNacimiento());
             System.out.println("Rut: " + ((Administrativo) asesoria).getRut());
             System.out.println("Área: " + ((Administrativo) asesoria).getArea());
             System.out.println("Años de experiencia: " + ((Administrativo) asesoria).getExperiencia());
             System.out.println();
           } else if (tipo.equalsIgnoreCase("profesional") && asesoria instanceof Profesional) {
-            System.out.println("Nombre: " + ((Profesional) asesoria).getNombre());
+            System.out.println("\nNombre: " + ((Profesional) asesoria).getNombre());
             System.out.println("Fecha de nacimiento: " + ((Profesional) asesoria).getFechaNacimiento());
             System.out.println("Rut: " + ((Profesional) asesoria).getRut());
             System.out.println("Título: " + ((Profesional) asesoria).getTitulo());
             System.out.println("Fecha de ingreso: " + ((Profesional) asesoria).getFechaIngreso());
             System.out.println();
+          }else{
+            System.out.println("Ingrese un tipo de usuario válido");
           }
         }
       }
