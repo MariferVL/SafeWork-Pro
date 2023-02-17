@@ -65,7 +65,6 @@ public class Contenedor {
         
       }
 
-
       //- Almacenar capacitación: permite agregar una nueva capacitación a la lista de instancias de la clase Capacitación.
       public void almacenarCapacitacion(){
         Capacitacion cap = new Capacitacion();
@@ -81,7 +80,6 @@ public class Contenedor {
 
       //- Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
 
-      
       /* 
       - Listar usuarios: permite desplegar la lista completa de usuarios, independiente del tipo. 
       En este método solo se deben desplegar los datos de la clase usuario. */
@@ -117,14 +115,42 @@ public class Contenedor {
         }
     }
 }
-
-
-
   /* 
       - Listar usuarios por tipo: recibe un tipo de usuario (cliente, administrador o profesional), 
       y retorna los datos respectivos según el tipo de usuario.
       - Listar capacitaciones: este método despliega las capacitaciones registradas en la lista respectiva, 
       junto con los datos del cliente al que está asociada dicha capacitación.
       */
+      public void listarUsuariosPorTipo(String tipo) {
+        for (Asesoria asesoria : listaAsesorias) {
+          if (tipo.equalsIgnoreCase("cliente") && asesoria instanceof Cliente) {
+            System.out.println("Rut: " + ((Cliente) asesoria).getRut());
+            System.out.println("Nombres: " + ((Cliente) asesoria).getNombres());
+            System.out.println("Apellidos: " + ((Cliente) asesoria).getApellidos());
+            System.out.println("Fecha de nacimiento: " + ((Cliente) asesoria).getFechaNacimiento());
+            System.out.println("Teléfono: " + ((Cliente) asesoria).getTelefono());
+            System.out.println("AFP: " + ((Cliente) asesoria).getAfp());
+            System.out.println("Sistema de salud: " + ((Cliente) asesoria).getSistemaSalud());
+            System.out.println("Dirección: " + ((Cliente) asesoria).getDireccion());
+            System.out.println("Comuna: " + ((Cliente) asesoria).getComuna());
+            System.out.println("Edad: " + ((Cliente) asesoria).getEdad());
+            System.out.println();
+          } else if (tipo.equalsIgnoreCase("administrativo") && asesoria instanceof Administrativo) {
+            System.out.println("Nombre: " + ((Administrativo) asesoria).getNombre());
+            System.out.println("Fecha de nacimiento: " + ((Administrativo) asesoria).getFechaNacimiento());
+            System.out.println("Rut: " + ((Administrativo) asesoria).getRut());
+            System.out.println("Área: " + ((Administrativo) asesoria).getArea());
+            System.out.println("Años de experiencia: " + ((Administrativo) asesoria).getExperiencia());
+            System.out.println();
+          } else if (tipo.equalsIgnoreCase("profesional") && asesoria instanceof Profesional) {
+            System.out.println("Nombre: " + ((Profesional) asesoria).getNombre());
+            System.out.println("Fecha de nacimiento: " + ((Profesional) asesoria).getFechaNacimiento());
+            System.out.println("Rut: " + ((Profesional) asesoria).getRut());
+            System.out.println("Título: " + ((Profesional) asesoria).getTitulo());
+            System.out.println("Fecha de ingreso: " + ((Profesional) asesoria).getFechaIngreso());
+            System.out.println();
+          }
+        }
+      }
 }
 

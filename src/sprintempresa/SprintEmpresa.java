@@ -117,7 +117,9 @@ public class SprintEmpresa {
 
                 case 7:
                     System.out.println("LISTAR USUARIOS POR TIPO");
-                    
+                    System.out.print("Ingrese el tipo de usuario por el cual desea listar: ");
+                    String tipo = sc.nextLine();
+                    contenedor.listarUsuariosPorTipo(null);
                     break;
 
                 case 8:
