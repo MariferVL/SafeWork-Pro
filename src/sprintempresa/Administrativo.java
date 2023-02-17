@@ -1,5 +1,7 @@
 package sprintempresa;
 
+import java.util.Scanner;
+
 public class Administrativo extends Usuario {
 
     String area;
@@ -15,8 +17,46 @@ public class Administrativo extends Usuario {
 
     @Override
     public String toString() {
-        return "DATOS ADMINISTRATIVO\n* Area --> " + area + "\n* Experiencia=" + experiencia;
+        return "DATOS ADMINISTRATIVO\n* Area --> " + area + "\n* Experiencia --> " + experiencia;
     }
+
+    public String validarExperiencia(String mensaje, Scanner sc){
+        
+        boolean cond1 = true;
+        String input = "";
+
+        while (cond1){
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[0-9]{1,100}")){
+                cond1 = false;
+            }else{
+                System.out.println("Datos ingresados no validos, ingrese año de experiencia correctamente porfavor");
+            }
+        }
+        return input;
+    }
+
+    public String validarArea(String mensaje, Scanner sc){
+        
+        boolean cond1 = true;
+        String input = "";
+
+        while (cond1){
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
+
+            if (input.matches("[a-z A-Z]{5,20}")){
+                cond1 = false;
+            }else{
+                System.out.println("Datos ingresados no validos, ingrese un nombre para área correctamente porfavor");
+            }
+        }
+        return input;
+    }
+
+
 
     public String getArea() {
         return area;

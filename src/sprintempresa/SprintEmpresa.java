@@ -73,7 +73,7 @@ public class SprintEmpresa {
             System.out.println("(6).- LISTAR USUARIOS");
             System.out.println("(7).- LISTAR USUARIOS POR TIPO");
             System.out.println("(8).- LISTAR CAPACITACIONES");
-            System.out.println("(1).- >> SALIR");
+            System.out.println("(9).- >> SALIR");
 
             System.out.print("\nELIJA UNA OPCIÓN [1-2-3-4-5-6-7-8-9] --> ");
             int opc = sc.nextInt();
@@ -83,43 +83,45 @@ public class SprintEmpresa {
                 case 1:
                     System.out.println("ALMACENAR CLIENTE");
                     contenedor.almacenarCliente();
-                    // despues quitar
-                    condMenu = false;
+                   
                     break;
 
                 case 2:
                     System.out.println("ALMACENAR PROFESIONAL");
-                    condMenu = false;
+                    contenedor.almacenarProfesional();
+                    
                     break;
 
                 case 3:
                     System.out.println("ALMACENAR ADMINISTRATIVO");
-                    condMenu = false;
+                    contenedor.almacenarAdministrativo();
+                    
                     break;
 
                 case 4:
                     System.out.println("ALMACENAR CAPACITACION");
-                    condMenu = false;
+                    contenedor.almacenarCapacitacion();
                     break;
 
                 case 5:
                     System.out.println("ELIMINAR USUARIO");
-                    condMenu = false;
+                    
                     break;
 
                 case 6:
                     System.out.println("LISTAR USUARIOS");
-                    condMenu = false;
+                    contenedor.listarUsuarios();
+                    
                     break;
 
                 case 7:
                     System.out.println("LISTAR USUARIOS POR TIPO");
-                    condMenu = false;
+                    
                     break;
 
                 case 8:
                     System.out.println("LISTAR CAPACITACIONES");
-
+                    break;
                 case 9:
                     System.out.println("FIN DEL PROGRAMA");
                     condMenu = false;
