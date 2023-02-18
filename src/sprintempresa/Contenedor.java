@@ -29,8 +29,7 @@ public class Contenedor {
     Cliente cliente = new Cliente();
     cliente.setRut(cliente.validarRut("Ingresar (ej: 99.999.999) --> ", teclado));
     cliente.setNombres(cliente.validarNombreApellido("Ingresar nombre, mínimo 5 caracteres, máximo 30 --> ", teclado));
-    cliente
-        .setApellidos(cliente.validarNombreApellido("Ingresar apellido, mínimo 5 caracteres, máximo 30 --> ", teclado));
+    cliente.setApellidos(cliente.validarNombreApellido("Ingresar apellido, mínimo 5 caracteres, máximo 30 --> ", teclado));
     cliente.setFechaNacimiento(cliente.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
     cliente.setTelefono(cliente.validarTelefono("Ingresa tu numero de telefono (8 digitos) --> ", teclado));
     cliente.setAfp(cliente.validarAfp("AFP: mínimo 4 caracteres, máximo 30 --> ", teclado));
@@ -48,13 +47,10 @@ public class Contenedor {
   public void almacenarProfesional() {
     Profesional profesional = new Profesional();
     profesional.setNombre(profesional.validarNombre("Ingresar nombre, mínimo 10 caracteres, máximo 50 --> ", teclado));
-    profesional
-        .setFechaNacimiento(profesional.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
+    profesional.setFechaNacimiento(profesional.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
     profesional.setRut(profesional.validarRut("Ingresar rut (ej: 99.999.999) --> ", teclado));
-    profesional
-        .setTitulo(profesional.validarNombreTitulo("Ingresar título, mínimo 10 caracteres, máximo 50 --> ", teclado));
-    profesional
-        .setFechaIngreso(profesional.validarFecha("Ingresa fecha de ingreso, formato: DD/MM/AAAA --> ", teclado));
+    profesional.setTitulo(profesional.validarNombreTitulo("Ingresar título, mínimo 10 caracteres, máximo 50 --> ", teclado));
+    profesional.setFechaIngreso(profesional.validarFecha("Ingresa fecha de ingreso, formato: DD/MM/AAAA --> ", teclado));
 
     listaAsesorias.add(profesional);
 
@@ -64,10 +60,8 @@ public class Contenedor {
   // lista de instancias de la interface Asesoria.
   public void almacenarAdministrativo() {
     Administrativo administrativo = new Administrativo();
-    administrativo
-        .setNombre(administrativo.validarNombre("Ingresar nombre, mínimo 10 caracteres, máximo 50 --> ", teclado));
-    administrativo.setFechaNacimiento(
-        administrativo.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
+    administrativo.setNombre(administrativo.validarNombre("Ingresar nombre, mínimo 10 caracteres, máximo 50 --> ", teclado));
+    administrativo.setFechaNacimiento(administrativo.validarFecha("Ingresa fecha de nacimiento, formato: DD/MM/AAAA --> ", teclado));
     administrativo.setRut(administrativo.validarRut("Ingresar rut (ej: 99.999.999) --> ", teclado));
     administrativo.setArea(administrativo.validarArea("Ingresar área, mínimo 5 caracteres, máximo 20 --> ", teclado));
     administrativo.setExperiencia(administrativo.validarExperiencia("Ingrese años de experiencia --> ", teclado));
@@ -93,7 +87,7 @@ public class Contenedor {
   // - Eliminar usuario: permite eliminar un usuario desde la lista de interfaces
   // de Asesoría acuerdo con el RUN del usuario.
   public void eliminarUsuario() {
-    System.out.println("Ingrese el tipo de usuario que desea eliminar [cliente, administrativo o profesional]");
+    System.out.println("Ingrese el tipo de usuario que desea eliminar [ cliente, administrativo o profesional ]");
     String tipoUsuario = teclado.nextLine();
 
     for (int i = 0; i < listaAsesorias.size(); i++) {
@@ -103,9 +97,30 @@ public class Contenedor {
         String rutIngresado = teclado.nextLine();
         if (rutIngresado.equals(((Cliente) asesoria).getRut())) {
           listaAsesorias.remove(i);
-          System.out.println("El usuario ha sido eliminado con exito");
-        } else {
-          System.out.println("No existe ese rut en nuestros sistemas... :c");
+          System.out.println("El usuario de rut " + rutIngresado + " ha sido eliminado con exito");
+        } else if (!rutIngresado.equals(((Cliente) asesoria).getRut())) {
+          System.out.println("El rut " + rutIngresado + " no existe en nuestros sistemas... :c");
+
+        } else if (tipoUsuario.equalsIgnoreCase("administrativo") && asesoria instanceof Cliente) {
+          System.out.print("Ingrese el rut del administrativo que desea eliminar --> ");
+          String rutIngresado2 = teclado.nextLine();
+          if (rutIngresado.equals(((Administrativo) asesoria).getRut())) {
+            listaAsesorias.remove(i);
+            System.out.println("El administrativo de rut " + rutIngresado2 + " ha sido eliminado con exito");
+          } else if (!rutIngresado2.equals(((Administrativo) asesoria).getRut())) {
+            System.out.println("El rut " + rutIngresado2 + " no existe en nuestros sistemas... :c");
+
+          } else if (tipoUsuario.equalsIgnoreCase("profesional") && asesoria instanceof Cliente) {
+            System.out.print("Ingrese el rut del administrativo que desea eliminar --> ");
+            String rutIngresado3 = teclado.nextLine();
+            if (rutIngresado.equals(((Profesional) asesoria).getRut())) {
+              listaAsesorias.remove(i);
+              System.out.println("El profesional de rut " + rutIngresado3 + " ha sido eliminado con exito");
+            } else if (!rutIngresado3.equals(((Profesional) asesoria).getRut())) {
+              System.out.println("El rut " + rutIngresado3 + " no existe en nuestros sistemas... :c");
+
+            }
+          }
         }
       }
     }
@@ -202,4 +217,12 @@ public class Contenedor {
       }
     }
   }
+
+  //Listar capacitaciones: este método despliega las capacitaciones registradas en la lista respectiva, 
+  //junto con los datos del cliente al que está asociada dicha capacitación.
+
+  public void listarCapacitaciones(){
+
+  }
+
 }
