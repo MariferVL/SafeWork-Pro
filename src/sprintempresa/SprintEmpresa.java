@@ -70,7 +70,7 @@ public class SprintEmpresa {
             System.out.println("(2).- ALMACENAR PROFESIONAL");
             System.out.println("(3).- ALMACENAR ADMINISTRATIVO");
             System.out.println("(4).- ALMACENAR CAPACITACION");
-            System.out.println("(5).- ELIMIANR USUARIO");
+            System.out.println("(5).- ELIMINAR USUARIO");
             System.out.println("(6).- LISTAR USUARIOS");
             System.out.println("(7).- LISTAR USUARIOS POR TIPO");
             System.out.println("(8).- LISTAR CAPACITACIONES");
