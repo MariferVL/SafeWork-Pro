@@ -92,39 +92,44 @@ public class Contenedor {
 
     for (int i = 0; i < listaAsesorias.size(); i++) {
       Asesoria asesoria = listaAsesorias.get(i);
+    
       if (tipoUsuario.equalsIgnoreCase("cliente") && asesoria instanceof Cliente) {
         System.out.print("Ingrese el rut del cliente que desea eliminar --> ");
         String rutIngresado = teclado.nextLine();
+    
         if (rutIngresado.equals(((Cliente) asesoria).getRut())) {
           listaAsesorias.remove(i);
           System.out.println("El usuario de rut " + rutIngresado + " ha sido eliminado con exito");
         } else if (!rutIngresado.equals(((Cliente) asesoria).getRut())) {
           System.out.println("El rut " + rutIngresado + " no existe en nuestros sistemas... :c");
-
-        } else if (tipoUsuario.equalsIgnoreCase("administrativo") && asesoria instanceof Cliente) {
-          System.out.print("Ingrese el rut del administrativo que desea eliminar --> ");
-          String rutIngresado2 = teclado.nextLine();
-          if (rutIngresado.equals(((Administrativo) asesoria).getRut())) {
-            listaAsesorias.remove(i);
-            System.out.println("El administrativo de rut " + rutIngresado2 + " ha sido eliminado con exito");
-          } else if (!rutIngresado2.equals(((Administrativo) asesoria).getRut())) {
-            System.out.println("El rut " + rutIngresado2 + " no existe en nuestros sistemas... :c");
-
-          } else if (tipoUsuario.equalsIgnoreCase("profesional") && asesoria instanceof Cliente) {
-            System.out.print("Ingrese el rut del administrativo que desea eliminar --> ");
-            String rutIngresado3 = teclado.nextLine();
-            if (rutIngresado.equals(((Profesional) asesoria).getRut())) {
-              listaAsesorias.remove(i);
-              System.out.println("El profesional de rut " + rutIngresado3 + " ha sido eliminado con exito");
-            } else if (!rutIngresado3.equals(((Profesional) asesoria).getRut())) {
-              System.out.println("El rut " + rutIngresado3 + " no existe en nuestros sistemas... :c");
-
-            }
-          }
+        }
+    
+      } else if (tipoUsuario.equalsIgnoreCase("administrativo") && asesoria instanceof Administrativo) {
+        System.out.print("Ingrese el rut del administrativo que desea eliminar --> ");
+        String rutIngresado2 = teclado.nextLine();
+    
+        if (rutIngresado2.equals(((Administrativo) asesoria).getRut())) {
+          listaAsesorias.remove(i);
+          System.out.println("El administrativo de rut " + rutIngresado2 + " ha sido eliminado con exito");
+        } else if (!rutIngresado2.equals(((Administrativo) asesoria).getRut())) {
+          System.out.println("El rut " + rutIngresado2 + " no existe en nuestros sistemas... :c");
+        }
+    
+      } else if (tipoUsuario.equalsIgnoreCase("profesional") && asesoria instanceof Profesional) {
+        System.out.print("Ingrese el rut del profesional que desea eliminar --> ");
+        String rutIngresado3 = teclado.nextLine();
+    
+        if (rutIngresado3.equals(((Profesional) asesoria).getRut())) {
+          listaAsesorias.remove(i);
+          System.out.println("El profesional de rut " + rutIngresado3 + " ha sido eliminado con exito");
+        } else if (!rutIngresado3.equals(((Profesional) asesoria).getRut())) {
+          System.out.println("El rut " + rutIngresado3 + " no existe en nuestros sistemas... :c");
         }
       }
-    }
+    }  
   }
+        
+      
   /*
    * - Listar usuarios: permite desplegar la lista completa de usuarios,
    * independiente del tipo.
@@ -171,9 +176,8 @@ public class Contenedor {
    * en la lista respectiva,
    * junto con los datos del cliente al que está asociada dicha capacitación.
    * 
-   * ((Cliente) asesoria) es un casting que convierte la referencia asesoria
-   * a un objeto de la clase Cliente. Esto es necesario si asesoria es una
-   * instancia de una clase que es una subclase de Cliente.
+   * ((Cliente) asesoria) es una forma de convertir (castear) la variable asesoria 
+   * para que sea de tipo Cliente.
    * 
    * Asesoria asesoria: indica que la variable asesoria será de tipo Asesoria, es
    * decir,
