@@ -46,7 +46,7 @@ public abstract class ValidacionAbs {
 
         while (cond) {
 
-            System.out.println("\n" + mensaje);
+            System.out.print("\n" + mensaje);
             input = sc.nextLine();
 
             if (input.matches("[0-9]{4}")) {
@@ -66,11 +66,12 @@ public abstract class ValidacionAbs {
 
         while (cond) {
 
-            System.out.println("\n" + mensaje);
+            System.out.print("\n" + mensaje);
             input = sc.nextLine();
-
-            if (input.matches("[\\d{2}.\\d{3}.\\d{3}]")) {
+            
+                if (input.matches("\\d{2}.\\d{3}.\\d{3}")){
                 cond = false;
+
             } else {
                 System.out.println("Rut ingresado no valido, intentalo nuevamente");
             }
@@ -85,7 +86,7 @@ public abstract class ValidacionAbs {
 
         while (cond) {
 
-            System.out.println("\n" + mensaje);
+            System.out.print("\n" + mensaje);
             input = sc.nextLine();
 
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
