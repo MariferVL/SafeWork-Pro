@@ -1,6 +1,13 @@
 package sprintempresa;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import ActividadesEmpresa.Accidente;
+import ActividadesEmpresa.Capacitacion;
+import ActividadesEmpresa.VisitaTerreno;
 
 public class Cliente extends Usuario {
 
@@ -12,14 +19,20 @@ public class Cliente extends Usuario {
     String direccion;
     String comuna;
     String edad;
+    String capacitacion;
+    String accidente;
+
+    Contenedor contenedor = new Contenedor();
+
+    private List<Capacitacion> capacitaciones = contenedor.getListaCapacitacion();
+    private List<VisitaTerreno> visitas = new ArrayList<>();
 
     public Cliente() {
         super();
     }
 
     public Cliente(String nombre, String fechaNacimiento, String rut, String nombres, String apellidos,
-            String telefono, String afp, String sistemaSalud, String direccion, String comuna, String edad)
-            {
+            String telefono, String afp, String sistemaSalud, String direccion, String comuna, String edad, String capacitacion,String accidente) {
         super(nombre, fechaNacimiento, rut);
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -29,8 +42,9 @@ public class Cliente extends Usuario {
         this.direccion = direccion;
         this.comuna = comuna;
         this.edad = edad;
+        this.capacitacion = capacitacion;
+        this.accidente = accidente;
     }
-
 
     @Override
     public String toString() {
@@ -67,46 +81,104 @@ public class Cliente extends Usuario {
         return input;
     }
 
-
     public String validarSalud(String mensaje, Scanner sc) {
 
-		boolean condSalud = true;
-		String input = "fonasa";
+        boolean condSalud = true;
+        String input = "fonasa";
 
-		while (condSalud) {
+        while (condSalud) {
 
-			System.out.print("\n" + mensaje);
-			input = sc.nextLine().toLowerCase();
+            System.out.print("\n" + mensaje);
+            input = sc.nextLine().toLowerCase();
 
-			if (input.matches("[1-2]+")) {
+            if (input.matches("[1-2]+")) {
 
-				if (input.equals("1") || input.equals("2")) {
-					condSalud = false;
-				} else {
-					System.out.println("Sistema de salud no existente, intentalo nuevamente");
-				}
+                if (input.equals("1") || input.equals("2")) {
+                    condSalud = false;
+                } else {
+                    System.out.println("Sistema de salud no existente, intentalo nuevamente");
+                }
 
-			} else {
-				System.out.println("Dato ingresado no valido, intentalo nuevamente");
-			}
-		}
-		return input;
-	}
-
-    public String obtenerSistemaSalud(){
-        String sistema = "Fonasa";
-    
-        if (this.sistemaSalud.equals("1")){
-             sistema = "Fonasa";
-    
-        }else if (this.sistemaSalud.equals("2")){
-            sistema = "Isapre";
-    
-        }else{
-            System.out.println("norsts");
+            } else {
+                System.out.println("Dato ingresado no valido, intentalo nuevamente");
+            }
         }
-        
+        return input;
+    }
+
+    public String obtenerSistemaSalud() {
+        String sistema = "Fonasa";
+
+        if (this.sistemaSalud.equals("1")) {
+            sistema = "Fonasa";
+
+        } else if (this.sistemaSalud.equals("2")) {
+            sistema = "Isapre";
+
+        } else {
+            System.out.println("no existe");
+        }
+
         return sistema;
+    }
+
+    public String registrarCap(String mensaje, Scanner sc) {
+
+        boolean cond = true;
+
+        while (cond) {
+
+            System.out.print("\n" + mensaje);
+            this.capacitacion = sc.nextLine();
+
+            if (this.capacitacion.matches("[0-9]{1,}")) {
+
+                int opc1 = Integer.parseInt(this.capacitacion);
+
+                if (opc1 >= 0) {
+                    
+                    cond = false;
+                }
+
+                else if (opc1 < 0 || opc1 >= capacitaciones.size()) {
+                    System.out.println("Opción no valida");
+
+                }
+            }
+        }
+        return this.capacitacion;
+
+    }
+
+    public String registrarAccidente(String mensaje, Scanner sc) {
+
+        boolean cond = true;
+        String accidente = "";
+
+        while (cond) {
+
+            System.out.print("\n" + mensaje);
+            capacitacion = sc.nextLine();
+
+            if (capacitacion.matches("[0-9]{1,}")) {
+
+                int opc1 = Integer.parseInt(capacitacion);
+
+                if (opc1 < 0 || opc1 >= capacitaciones.size()) {
+                    System.out.println("Opción no valida");
+
+                } else if (opc1 >= 0 && opc1 < capacitaciones.size()) {
+                    cond = false;
+                }
+            }
+        }
+        return accidente;
+
+    }
+
+
+    public void setCapacitacion(String capacitacion) {
+        this.capacitacion = capacitacion;
     }
 
     public String getNombres() {

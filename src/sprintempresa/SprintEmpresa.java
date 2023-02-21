@@ -125,6 +125,8 @@ public class SprintEmpresa {
 
                 case "8":
                     System.out.println("LISTAR CAPACITACIONES");
+                    contenedor.listarCapacitaciones();
+
                     break;
                 case "9":
                     System.out.println("FIN DEL PROGRAMA");
