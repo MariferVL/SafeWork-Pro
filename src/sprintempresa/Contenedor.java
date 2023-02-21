@@ -40,8 +40,12 @@ public class Contenedor {
     cliente.setDireccion(cliente.validarDireccion("Dirección: minimo 2 caracteres, máximo 70 caractere --> ", teclado));
     cliente.setComuna(cliente.validarComuna("Comuna: máximo 50 caracteres --> ", teclado));
     cliente.setEdad(cliente.validarEdad("Edad: obligatorio, número mayor o igual a cero, y menor a 150 --> ", teclado));
-    cliente.setCapacitacion(cliente.registrarCap("Cuantas capacitaciones quiere tomar? --> ", teclado));
+    cliente.setCapacitacion(cliente.validarCap("Cuantas capacitaciones quiere tomar? --> ", teclado));
 
+    int  opc1 = Integer.parseInt(cliente.getCapacitacion());
+    for (int i = 0; i < opc1; i++){
+      almacenarCapacitacion();
+    }
     listaAsesorias.add(cliente);
 
   }
@@ -88,7 +92,7 @@ public class Contenedor {
     cap.setRutCliente(cap.validarRun("Ingresar rut (99.999.999) --> ", teclado));
     cap.setDia(cap.fechaDia("Ingresar día, (DD/MM/AAAA) --> ", teclado));
     cap.setHora(cap.validarHora("Ingresar hora, (hh:mm) --> ", teclado));
-    cap.setLugar(cap.validarLugar_NombreRev("Ingresar lugar (10 a 50 caracteres) --> ", teclado));
+    cap.setLugar(cap.validarLugar_NombreRev("Ingresar lugar (10 a 50 caracte) --> ", teclado));
     cap.setCantidadAsistentes(cap.validarAsistentes("Ingresar cantidad asistentes --> ", teclado));
 
     listaCapacitacion.add(cap);
@@ -214,21 +218,18 @@ public class Contenedor {
         System.out.println("Dirección: " + ((Cliente) asesoria).getDireccion());
         System.out.println("Comuna: " + ((Cliente) asesoria).getComuna());
         System.out.println("Edad: " + ((Cliente) asesoria).getEdad());
-        System.out.println();
       } else if (tipo.equalsIgnoreCase("administrativo") && asesoria instanceof Administrativo) {
         System.out.println("\nNombre: " + ((Administrativo) asesoria).getNombre());
         System.out.println("Fecha de nacimiento: " + ((Administrativo) asesoria).getFechaNacimiento());
         System.out.println("Rut: " + ((Administrativo) asesoria).getRut());
         System.out.println("Área: " + ((Administrativo) asesoria).getArea());
         System.out.println("Años de experiencia: " + ((Administrativo) asesoria).getExperiencia());
-        System.out.println();
       } else if (tipo.equalsIgnoreCase("profesional") && asesoria instanceof Profesional) {
         System.out.println("\nNombre: " + ((Profesional) asesoria).getNombre());
         System.out.println("Fecha de nacimiento: " + ((Profesional) asesoria).getFechaNacimiento());
         System.out.println("Rut: " + ((Profesional) asesoria).getRut());
         System.out.println("Título: " + ((Profesional) asesoria).getTitulo());
         System.out.println("Fecha de ingreso: " + ((Profesional) asesoria).getFechaIngreso());
-        System.out.println();
       } else {
         System.out.println("Ingrese un tipo de usuario válido");
       }
@@ -240,27 +241,34 @@ public class Contenedor {
   // junto con los datos del cliente al que está asociada dicha capacitación.
 
   public void listarCapacitaciones() {
-    System.out.println("Lista de Capacitaciones:\n");
-    for (Asesoria asesoria : listaAsesorias) {
-      if (asesoria instanceof Capacitacion) {
-        System.out.println("ID: " + ((Capacitacion) asesoria).getId());
-        System.out.println("Rut cap: " + ((Capacitacion) asesoria).getRutCliente());
-        System.out.println("Hora: " + ((Capacitacion) asesoria).getHora());
-        System.out.println("Lugar: " + ((Capacitacion) asesoria).getLugar());
-        System.out.println("Duracion: " + ((Capacitacion) asesoria).getDuracion());
-        System.out.println("Cantidad Asistentes: " + ((Capacitacion) asesoria).getCantidadAsistentes());
-        System.out.println("\nRut: " + ((Cliente) asesoria).getRut());
-        System.out.println("Nombres: " + ((Cliente) asesoria).getNombres());
-        System.out.println("Apellidos: " + ((Cliente) asesoria).getApellidos());
-        System.out.println("Fecha de nacimiento: " + ((Cliente) asesoria).getFechaNacimiento());
-        System.out.println("Teléfono: " + ((Cliente) asesoria).getTelefono());
-        System.out.println("AFP: " + ((Cliente) asesoria).getAfp());
-        System.out.println("Sistema de salud: " + ((Cliente) asesoria).getSistemaSalud());
-        System.out.println("Dirección: " + ((Cliente) asesoria).getDireccion());
-        System.out.println("Comuna: " + ((Cliente) asesoria).getComuna());
-        System.out.println("Edad: " + ((Cliente) asesoria).getEdad());
-      }
+    System.out.println("Lista de Capacitaciones");
+    System.out.println("------------------------------------");
+    for (Capacitacion cap1 : listaCapacitacion) {
+      if (cap1 instanceof Capacitacion) {
+        System.out.println("\n* ID: " + ((Capacitacion) cap1).getId());
+        System.out.println("* Rut cap: " + ((Capacitacion) cap1).getRutCliente());
+        System.out.println("* Hora: " + ((Capacitacion) cap1).getHora());
+        System.out.println("* Lugar: " + ((Capacitacion) cap1).getLugar());
+        System.out.println("* Duracion: " + ((Capacitacion) cap1).getDuracion());
+        System.out.println("* Cantidad Asistentes: " + ((Capacitacion) cap1).getCantidadAsistentes());
 
+        System.out.println("\nDATOS DE CLIENTE ASOCIADO A LA CAPACITACION");
+        System.out.println("------------------------------------");
+        for (Asesoria asesoria : listaAsesorias) {
+          if (asesoria instanceof Cliente) {
+            Cliente cliente = (Cliente) asesoria;
+            System.out.println("\n* RUT: " + cliente.getRut());
+            System.out.println("* Nombre: " + cliente.getNombres() + " " + cliente.getApellidos());
+            System.out.println("* Fecha de nacimiento: " + cliente.getFechaNacimiento());
+            System.out.println("* Teléfono: " + cliente.getTelefono());
+            System.out.println("* AFP: " + cliente.getAfp());
+            System.out.println("* Sistema de salud: " + cliente.getSistemaSalud());
+            System.out.println("* Dirección: " + cliente.getDireccion());
+            System.out.println("* Comuna: " + cliente.getComuna());
+            System.out.println("* Edad: " + cliente.getEdad() + "\n");
+          }
+        }
+      }
     }
   }
 }

@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ActividadesEmpresa.Accidente;
+import javax.xml.namespace.QName;
+
 import ActividadesEmpresa.Capacitacion;
 import ActividadesEmpresa.VisitaTerreno;
 
@@ -25,7 +26,7 @@ public class Cliente extends Usuario {
     Contenedor contenedor = new Contenedor();
 
     private List<Capacitacion> capacitaciones = contenedor.getListaCapacitacion();
-    private List<VisitaTerreno> visitas = new ArrayList<>();
+   
 
     public Cliente() {
         super();
@@ -122,7 +123,7 @@ public class Cliente extends Usuario {
         return sistema;
     }
 
-    public String registrarCap(String mensaje, Scanner sc) {
+    public String validarCap(String mensaje, Scanner sc) {
 
         boolean cond = true;
 
@@ -133,11 +134,10 @@ public class Cliente extends Usuario {
 
             if (this.capacitacion.matches("[0-9]{1,}")) {
 
-                int opc1 = Integer.parseInt(this.capacitacion);
+                int  opc1 = Integer.parseInt(this.capacitacion);
 
                 if (opc1 >= 0) {
-                    
-                    cond = false;
+                cond = false;
                 }
 
                 else if (opc1 < 0 || opc1 >= capacitaciones.size()) {
@@ -150,35 +150,12 @@ public class Cliente extends Usuario {
 
     }
 
-    public String registrarAccidente(String mensaje, Scanner sc) {
-
-        boolean cond = true;
-        String accidente = "";
-
-        while (cond) {
-
-            System.out.print("\n" + mensaje);
-            capacitacion = sc.nextLine();
-
-            if (capacitacion.matches("[0-9]{1,}")) {
-
-                int opc1 = Integer.parseInt(capacitacion);
-
-                if (opc1 < 0 || opc1 >= capacitaciones.size()) {
-                    System.out.println("Opción no valida");
-
-                } else if (opc1 >= 0 && opc1 < capacitaciones.size()) {
-                    cond = false;
-                }
-            }
-        }
-        return accidente;
-
-    }
-
 
     public void setCapacitacion(String capacitacion) {
         this.capacitacion = capacitacion;
+    }
+    public String getCapacitacion() {
+        return capacitacion;
     }
 
     public String getNombres() {

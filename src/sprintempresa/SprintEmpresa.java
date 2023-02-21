@@ -46,7 +46,7 @@ import ActividadesEmpresa.*;;
 //Crear metodo Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
 //Crear metodo Listar usuarios: permite desplegar la lista completa de usuarios,independiente del tipo, solo se deben desplegar los datos de la clase usuario.
 //Crear metodo Listar usuarios por tipo: recibe un tipo de usuario (cliente, administrador o profesional), y retorna los datos respectivos.
-//TODO: Crear metodo Listar capacitaciones que despliega las capacitaciones registradas en la lista respectiva, junto con los datos del cliente al que está asociada la capacitación
+//Crear metodo Listar capacitaciones que despliega las capacitaciones registradas en la lista respectiva, junto con los datos del cliente al que está asociada la capacitación
 
 
 //Crear clase Principal, donde se crea una instancia de la clase Contenedor, lo que creará con ello las dos listas que considera esta clase. 
@@ -86,19 +86,16 @@ public class SprintEmpresa {
                 case "1":
                     System.out.println("ALMACENAR CLIENTE");
                     contenedor.almacenarCliente();
-                   
                     break;
 
                 case "2":
                     System.out.println("ALMACENAR PROFESIONAL");
                     contenedor.almacenarProfesional();
-                    
                     break;
 
                 case "3":
                     System.out.println("ALMACENAR ADMINISTRATIVO");
                     contenedor.almacenarAdministrativo();
-                    
                     break;
 
                 case "4":
@@ -114,20 +111,18 @@ public class SprintEmpresa {
                 case "6":
                     System.out.println("LISTAR USUARIOS");
                     contenedor.listarUsuarios();
-                    
                     break;
 
                 case "7":
                     System.out.println("LISTAR USUARIOS POR TIPO");
-                    
                     contenedor.listarUsuariosPorTipo();
                     break;
 
                 case "8":
                     System.out.println("LISTAR CAPACITACIONES");
                     contenedor.listarCapacitaciones();
-
                     break;
+
                 case "9":
                     System.out.println("FIN DEL PROGRAMA");
                     condMenu = false;
