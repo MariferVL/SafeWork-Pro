@@ -5,9 +5,7 @@
 <br/>
 <div align="center">
 
-<h1 align="center"><b> SPRINT 2 <br/>
- Modulo Java</b></h1>
-<h2 align="center">Asesorías 📝</h2>
+<h1 align="center"><b> Asesorías 📝</h1>
 <img src="https://github.com/BarbaraCarvajal/SprintEmpresa/blob/master/c.gif">
 
 <b>Autores</b>
