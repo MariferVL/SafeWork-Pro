@@ -7,15 +7,6 @@ import ActividadesEmpresa.Capacitacion;
 
 public class Contenedor {
 
-  /*
-   * Cree la clase Contenedor, la cual deberá tener declarado como atributos dos
-   * listas:
-   * una lista de instancias de la interface Asesoria, y una lista de objetos de
-   * la
-   * clase Capacitacion. En la primera lista pueden ser almacenados distintos
-   * tipos de usuarios.
-   */
-
   // scanner
   Scanner teclado = new Scanner(System.in);
   // lista asesorias

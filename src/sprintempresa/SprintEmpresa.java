@@ -14,43 +14,6 @@ import ActividadesEmpresa.*;;
  * @author Bárbara Carvajal
  */
 
-//Crear clase USUARIO con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
-//Crear metodo mostrarEdad() para la clase USUARIO el cual retorna el mensaje “El  usuario tiene X años”.
-//Crear el metodo analizarUsuario que despliegue el nombre y el RUN. Considere que esta clase debeimplementar la interface Asesoría.
-
-//Crear clase CLIENTE con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
-//Crear el método obtenerNombre(), que retorna un String con el nombre completodel cliente (nombres + apellidos).
-//Crear el método obtenerSistemaSalud()  que de acuerdo al valor registrado en el objeto despliega el tipo de sistema de salud,
-//Crear el método analizarUsuario() que debe desplegar los datos del método del mismo nombre correspondiente a la clase padre y la dirección del cliente junto con la comuna.
-
-//Crear interface ASESORIA que debe tener declarado el método analizarUsuario ().
-
-//Crear clase ADMMINISTRATIVO con constructor vacio y con paramentros, metodo toString y GETTERS & SETTERS.
-//Crear el método analizarUsuario() debe mostrar los datos del método del mismo nombre de la clase padre,junto con el área a la que pertenece y su experiencia previa.
-
-//Crear clase PROFESIONAL, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//Crear método analizarUsuario(), el que debe desplegar los datos del método del mismo nombre de la clase padre, y el título y fecha de ingreso.
-
-//Crear clase CAPACITACION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//Crear el método mostrarDetalle(), que retorna el mensaje “La capacitación será en A a las B del día C, y durará D minutos”.
-
-//Crear clase ACCIDENTE, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//Crear clase VISITA TERRENO, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-//Crear clase REVISION, con constructor vacio y con parametros, metodo toString y GETTERS & SETTERS.
-
-//Crear la clase CONTENEDOR deberá tener declarado como atributos una lista de instancias de la interface Asesoria, y una lista de objetos de la clase Capacitacion.
-//Crear metodo Almacenar cliente: permite agregar un nuevo cliente a la lista de instancias de la interface Asesoria.
-//Crear metodo Almacenar profesional: permite agregar un nuevo profesional a la lista de instancias de la interface Asesoria.
-//Crear metodo Almacenar administrativo: permite agregar un nuevo administrativo a la lista de instancias de la interface Asesoria.
-//Crear metodo Almacenar capacitación: permite agregar una nueva capacitación a la lista de instancias de la clase Capacitación.
-//Crear metodo Eliminar usuario: permite eliminar un usuario desde la lista de interfaces de Asesoría acuerdo con el RUN del usuario.
-//Crear metodo Listar usuarios: permite desplegar la lista completa de usuarios,independiente del tipo, solo se deben desplegar los datos de la clase usuario.
-//Crear metodo Listar usuarios por tipo: recibe un tipo de usuario (cliente, administrador o profesional), y retorna los datos respectivos.
-//Crear metodo Listar capacitaciones que despliega las capacitaciones registradas en la lista respectiva, junto con los datos del cliente al que está asociada la capacitación
-
-
-//Crear clase Principal, donde se crea una instancia de la clase Contenedor, lo que creará con ello las dos listas que considera esta clase. 
-//Crear un menú principal con nueve opciones: ocho para las acciones indicadas en el listado y una opción para salir del programa.
 
 
 public class SprintEmpresa {

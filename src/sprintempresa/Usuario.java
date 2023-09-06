@@ -7,7 +7,11 @@ import java.text.SimpleDateFormat;
 
 /**
  * @author Luis Zenteno
+ * @author Maria-Fernanda Villalobos
+ * @author Bárbara Carvajal
+ *  
  */
+
 public class Usuario implements Asesoria{
 
     // Atributos propios de la clase
